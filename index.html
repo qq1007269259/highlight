@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>代码块</title>
+	<!-- <link rel="stylesheet" href="./styles/xt256.css"> -->
+	<link rel="stylesheet" href="./styles/tomorrow-night-eighties.css">
+	<!-- <link rel="stylesheet" href="./styles/sunburst.css"> -->
+	<!-- <link rel="stylesheet" href="./styles/monokai.css"> -->
+	<!-- <link rel="stylesheet" href="./styles/monokai-sublime.css"> -->
+	<!-- <link rel="stylesheet" href="./styles/hopscotch.css"> -->
+	<!-- <link rel="stylesheet" href="./styles/gruvbox-dark.css"> -->
+	<!-- <link rel="stylesheet" href="./styles/dracula.css"> -->
+	<!-- <link rel="stylesheet" href="prism.css"> -->
+	<script src="highlight.pack.js"></script>
+	<!-- <script src="prism.js"></script> -->
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	<pre><code class="language-php">
+		/**
+		 * 二维数组按照指定字段进行排序
+		 * @params array $array 需要排序的数组
+		 * @params string $field 排序的字段
+		 * @params string $sort 排序顺序标志 SORT_DESC 降序；SORT_ASC 升序
+		 */
+		function arraySequence($array, $field, $sort = 'SORT_DESC') {
+		    $arrSort = array();
+		    foreach ($array as $uniqid => $row) {
+		        foreach ($row as $key => $value) {
+		            $arrSort[$key][$uniqid] = $value;
+		        }
+		    }
+		    array_multisort($arrSort[$field], constant($sort), $array);
+		    return $array;
+		}
+	</code></pre>
+</body>
+</html>
